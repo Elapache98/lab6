@@ -75,10 +75,10 @@ circles.attr("r", 5)
     grey = less than 3
     orange = 3
     green = more than 3
-    (0-sad & grey circles  3- average & orange circles 5-very happy & green circles)
+    (0-sad & black circles  3- average & orange circles 5-very happy & green circles)
     this provides an easier way to visually discern how my my mood and my increase or decrease in youtube consumption are correlated****/ {
         if (value.x < 3) {
-            return "grey";
+            return "black";
         } else if (value.x > 3) {
             return "green";
         } else { return "orange"; }
