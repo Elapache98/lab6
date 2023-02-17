@@ -33,19 +33,19 @@ svg.append("rect")
     .attr("height", svgHeight - margin * 2);
 
 let dataset = [
-    { x: 0, y: 0 },
-    { x: 1, y: 3 },
-    { x: 2, y: 3 },
-    { x: 3, y: 4 },
-    { x: 4, y: 5 },
-    { x: 3, y: 165 }
+    { x: 3, y: 10 },
+    { x: 4.5, y: 237 },
+    { x: 3, y: 90 },
+    { x: 4, y: 214 },
+    { x: 3, y: 102 },
+    { x: 3.5, y: 165 }
 ];
 
-let xScale = d3.scaleLinear()
+let happinessRange = d3.scaleLinear()
     .domain([0, 5])
     .range([margin, svgWidth - margin]);
 
-let yScale = d3.scaleLinear()
+let minutesOnYoutube = d3.scaleLinear()
     .domain([0, 500])
     .range([svgHeight - margin, margin]);
 
@@ -55,10 +55,10 @@ let circles = svg.selectAll("circle")
 
 circles.attr("r", 5)
     .attr("cx", function (value) {
-        return xScale(value.x);
+        return happinessRange(value.x);
     })
     .attr("cy", function (value) {
-        return yScale(value.y);
+        return minutesOnYoutube(value.y);
     })
 
 /**** label the axes ****/
@@ -83,13 +83,13 @@ let originLabel = svg.append("text")
     .attr("text-anchor", "middle")
     .text("0,0");
 
-let xAxisValueLabel = svg.append("text")
+let xAxisMaxValue = svg.append("text")
     .attr("x", svgWidth - margin)
     .attr("y", svgHeight - (margin / 2))
     .attr("text-anchor", "end")
     .text("5");
 
-let yAxisValueLabel = svg.append("text")
+let yAxisMaxValue = svg.append("text")
     .attr("x", -margin)
     .attr("y", margin / 2)
     .attr("text-anchor", "end")
